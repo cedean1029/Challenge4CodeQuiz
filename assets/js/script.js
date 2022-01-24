@@ -39,22 +39,38 @@ function showQuestions (){
     var questionsTitle = document.getElementById('questions-title');
     var questionAnswer = document.getElementById('question-answer-container'); 
     questionsTitle.innerHTML = questionArray[i].question;
+    var ulEl = document.createElement('ul');
+    ulEl.setAttribute('id', 'answerContainer');
+    questionAnswer.appendChild(ulEl);
     for (var j = 0; j < questionArray[i].answers.length; j++){
         var liEl = document.createElement("li");
         liEl.innerHTML = questionArray[i].answers[j];
-        questionAnswer.appendChild(liEl);
-        liEl.setAttribute("onclick","nextQuestion()");
+        ulEl.appendChild(liEl);
+        liEl.setAttribute("onclick","nextQuestion(event)");
     } 
 };
 
-function nextQuestion() {
-    // if ()
-    var liEl = document.querySelector("#li");
-    liEl.remove();
-    i++
-    console.log(i);
-    showQuestions();
-}
+function nextQuestion(e) {
+    console.log(e.target);
+    console.log(e.target.textContent);
+    var answersEl = document.getElementById("answerContainer");
+    answersEl.remove();
+    if (e.target.textContent !== questionArray[i].answerTrue) {
+        timer -= 5;  
+    };
+    i++;
+    if (i < questionArray.length) {
+        showQuestions();
+    } else {
+        showScores();
+        var questionContainer = document.getElementById("questions-container");
+        questionContainer.remove();
+    };
+};
+
+function showScores() {
+    console.log('hello')
+};
 
 // Start the quiz
 startButtonEl.addEventListener('click', startQuiz);
