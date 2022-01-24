@@ -77,6 +77,11 @@ function showScores() {
     var table = document.getElementById("highscores");
     var listScores = Object.entries(localStorage);
     console.log(listScores);
+    console.log(listScores.length);
+    var trEl = document.createElement("tr");
+    trEl.innerHTML = listScores;
+    table.appendChild(trEl);
+    //for (var s = 0; s < listScores.length; s++){} 
 };
 
 // Start the quiz
