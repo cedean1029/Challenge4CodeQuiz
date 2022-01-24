@@ -26,8 +26,6 @@ function timerFunction () {
     }, 1000)
 };
 
-
-
 function startQuiz (){
     console.log("quiz started");
     timerFunction();
@@ -68,8 +66,13 @@ function nextQuestion(e) {
     };
 };
 
+function submitScore () {
+    console.log('hello')
+};
+
 function showScores() {
     console.log('hello')
+
 };
 
 // Start the quiz
