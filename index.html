@@ -24,12 +24,13 @@
     </section>
 
     <section id="scores">
-        <h1>
-            Scores
-        </h1>
+        <h1>Scores</h1>
         <label for="initials">Initials</label>
         <input type="text" id="initials" name="initials">
-        <button onClick="submitScore">Submit</button>
+        <button onClick="submitScore()">Submit</button>
+        <table id="highscores">
+            <tr><td>Initials</td><td>Score</td></tr>
+        </table>
     </section>
         <script src="./assets/js/script.js"></script>
 </body>

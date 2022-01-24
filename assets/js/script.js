@@ -7,14 +7,14 @@ var answerEl = document.getElementsByTagName('li');
 
 var questionArray = [
     {
-        question: "What is my favorite color?",
-        answers: ["blue", "purple", "green", "black"],
-        answerTrue: "green"
+        question: "What does HTML stand for?",
+        answers: ["Hypertext Markup Language", "Hottext Makeup Language", "Hypertext Make Language", "Hypertech Missing Language"],
+        answerTrue: "Hypertext Markup Language"
     },
     {
-        question: "What is my middle name?",
-        answers: ["Mary", "Elizabeth", "Joy", "Debbie"],
-        answerTrue: "Elizabeth"
+        question: "When was Javascript created?",
+        answers: ["1997", "1991", "1995", "2002"],
+        answerTrue: "1995"
     }
 ]
 
@@ -60,19 +60,23 @@ function nextQuestion(e) {
     if (i < questionArray.length) {
         showQuestions();
     } else {
-        showScores();
         var questionContainer = document.getElementById("questions-container");
         questionContainer.remove();
     };
 };
 
-function submitScore () {
-    console.log('hello')
+function submitScore() {
+    var initials = document.getElementById("initials").value;
+    var score = timer;
+    localStorage.setItem(initials, score);
+    console.log(score);
+    showScores();
 };
 
 function showScores() {
-    console.log('hello')
-
+    var table = document.getElementById("highscores");
+    var listScores = Object.entries(localStorage);
+    console.log(listScores);
 };
 
 // Start the quiz
